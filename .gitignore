@@ -1,0 +1,9 @@
+ex*.c
+*.ino
+*.o
+*.c
+*.elf
+*.a
+*.pyc
+include
+lib

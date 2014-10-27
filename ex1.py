@@ -18,12 +18,10 @@ class Arduino(TestCase, ATMega328):
   def testLED13(self):
     import time
     "test toggle output pin (portB7)"
-    o = 10000   # duration of interrupt function, about 10us
     d = 1000000000 #1sec timer
-    # now output should be set to LOW
-    self.doRun(d * 2) # wait 5 secs for init
+    self.doRun(1000000) # startup
     lastval = self.device.GetPin("B5").toChar()
-    for x in range(3,10): # Test 10 times state switching on PORTB-5
+    for x in range(1,10): # Test 10 times state switching on PORTB-5
       self.doRun(d * x)
       curval = self.device.GetPin("B5").toChar()
       self.assertNotEqual(lastval,curval)
@@ -36,7 +34,3 @@ if __name__ == "__main__":
   suite.addTests(allTestsFrom(Arduino))
   TextTestRunner(verbosity = 2).run(suite)
 
-  #sim = Arduino()
-  #sim.init()
-  #sim.testLED13()
-  #sim.finish() 
