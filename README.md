@@ -7,6 +7,15 @@ Tout le necessaire pour tester dans le logiciel simulavr, emuler Arduino et le L
 
 A chaque exercice un jeu de tests correspondant sous forme de tests unitaires python.
 
-A venir :
+Utiliser le simulateur de tests :
 
-Des scripts pour compiler du code Arduino avec gcc-avr sans avoir besoin de Arduino-IDE
+installer gcc-avr binutils-avr et simulavr (dans une version récente)
+
+copier votre .ino en le nommant ex1.ino (pour l'exercice 1)
+
+lancez la commande make
+
+lancez le script python ex1.py
+
+Attendez
+
