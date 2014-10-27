@@ -21,9 +21,7 @@ class Arduino(TestCase, ATMega328):
     o = 10000   # duration of interrupt function, about 10us
     d = 1000000000 #1sec timer
     # now output should be set to LOW
-    print "%s %s" % (self.getCurrentTime(),self.device.GetPin("B5").toChar())
     self.doRun(d * 2) # wait 5 secs for init
-    print "%s %s" % (self.getCurrentTime(),self.device.GetPin("B5").toChar())
     lastval = self.device.GetPin("B5").toChar()
     for x in range(3,10): # Test 10 times state switching on PORTB-5
       self.doRun(d * x)
