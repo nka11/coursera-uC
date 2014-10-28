@@ -31,6 +31,6 @@ class TestExerciceSemaine1(TestCase, Arduino):
 if __name__ == "__main__":
   allTestsFrom = defaultTestLoader.loadTestsFromTestCase
   suite = TestSuite()
-  suite.addTests(allTestsFrom(Arduino))
+  suite.addTests(allTestsFrom(TestExerciceSemaine1))
   TextTestRunner(verbosity = 2).run(suite)
 
