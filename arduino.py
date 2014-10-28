@@ -2,10 +2,10 @@
 import pysimulavr
 
 
-class ATMega328(object):
-  "Settings for ATMega328"
+class Arduino(object):
+  "Settings for Arduino"
   DEFAULT_CLOCK_SETTING = 62 # 62.5 or 16MHz
-  
+  PIN13LED = "B5"
   def loadDevice(self, t, e):
     self.__sc = pysimulavr.SystemClock.Instance()
     self.__sc.ResetClock()

@@ -7,3 +7,4 @@ ex*.c
 *.pyc
 include
 lib
+*.swp

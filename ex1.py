@@ -5,9 +5,9 @@ from unittest import TestSuite, TextTestRunner, TestCase, defaultTestLoader
 from sys import argv
 
 import pysimulavr
-from atmega328 import ATMega328
+from arduino import Arduino
 
-class Arduino(TestCase, ATMega328):
+class TestExerciceSemaine1(TestCase, Arduino):
   
   def setUp(self):
     self.device = self.loadDevice("atmega328", "ex1.elf")
@@ -20,10 +20,10 @@ class Arduino(TestCase, ATMega328):
     "test toggle output pin (portB7)"
     d = 1000000000 #1sec timer
     self.doRun(1000000) # startup
-    lastval = self.device.GetPin("B5").toChar()
+    lastval = self.device.GetPin(self.PIN13LED).toChar()
     for x in range(1,10): # Test 10 times state switching on PORTB-5
       self.doRun(d * x)
-      curval = self.device.GetPin("B5").toChar()
+      curval = self.device.GetPin(self.PIN13LED).toChar()
       self.assertNotEqual(lastval,curval)
       lastval = curval
 
