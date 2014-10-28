@@ -1,0 +1,37 @@
+Part 	Fonction
+	Arduino Pin
+	Circuit
+	Opération
+	Commentaire
+
+
+ HP 	D1	Haut Parleur
+	LED+10kOhm/ Buzzer 30/330 Ohm
+	active-HIGH
+	aussi Tx
+
+ P1 	D2	Moustache gauche
+	pull-up
+	active-LOW
+	Interrupt 0
+
+ P2 	D3	Moustache droite
+	pull-up
+	active-LOW
+	Interrupt 1
+
+ L1 	D4	Moteur gauche arrière
+	LED+10kOhm
+	active-HIGH
+	
+ L2 	D5	Moteur gauche avant
+	 	LED+10kOhm 	active-HIGH
+	PWM
+
+ L3 	D6	Moteur droit avant
+		LED+10kOhm 	active-HIGH
+	PWM
+
+ L4 	D7	Moteur droit arrière
+	 	LED+10kOhm 	active-HIGH
+	
