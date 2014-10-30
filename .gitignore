@@ -8,3 +8,5 @@ ex*.c
 include
 lib
 *.swp
+*.hex
+*~

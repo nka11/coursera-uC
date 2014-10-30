@@ -1,0 +1,1 @@
+avrdude -c dragon_isp -P usb -u -U flash:w:ex1.hex  -p m328 -B250
