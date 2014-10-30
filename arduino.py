@@ -17,11 +17,12 @@ class Arduino(object):
     
   def doRun(self, n):
     ct = self.__sc.GetCurrentTime
-    while ct() < n:
-      res = self.__sc.Step()
-      if res is not 0: return res
-    return 0
-      
+    res = self.__sc.RunTimeRange(n)
+    return res
+
+  def doContinue(self, n):
+    self.__sc.RunTimeRange(n)
+
   def doStep(self, stepcount = 1):
     while stepcount > 0:
       res = self.__sc.Step()

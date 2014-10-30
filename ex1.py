@@ -22,7 +22,7 @@ class TestExerciceSemaine1(TestCase, Arduino):
     self.doRun(1000000) # startup
     lastval = self.device.GetPin(self.PIN13LED).toChar()
     for x in range(1,10): # Test 10 times state switching on PORTB-5
-      self.doRun(d * x)
+      self.doRun(d)
       curval = self.device.GetPin(self.PIN13LED).toChar()
       self.assertNotEqual(lastval,curval)
       lastval = curval
