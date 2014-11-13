@@ -6,6 +6,8 @@ all: libarduino.a
 
 libarduino.a: $(OBJECTS)
 	avr-ar crs libarduino.a $(OBJECTS)
+	mkdir -p ../lib
+	mkdir -p ../include
 	cp libarduino.a ../lib
 	cp *.h ../include
 
@@ -16,4 +18,5 @@ libarduino.a: $(OBJECTS)
 %.o: %.c
 	avr-gcc -Os -Wl,--gc-sections -ffunction-sections  -fdata-sections -I./ -mmcu=atmega328p -DF_CPU=16000000UL -c $<
 clean:
-	rm -f *.o
+	rm -f *.o *.a
+	rm -Rf ../lib ../include
