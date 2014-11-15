@@ -2,9 +2,7 @@
 # -*- coding: UTF-8 -*-
 # Python test script as demonstration of using pysimulavr in unit tests
 from unittest import TestSuite, TextTestRunner, TestCase, defaultTestLoader
-from sys import argv
 
-import pysimulavr
 from arduino import Arduino
 
 class TestExerciceSemaine1(TestCase, Arduino):
@@ -16,7 +14,6 @@ class TestExerciceSemaine1(TestCase, Arduino):
     del self.device
     
   def testLED13(self):
-    import time
     "test toggle output pin (portB7)"
     d = 1000000000 #1sec timer
     self.doRun(1000000) # startup

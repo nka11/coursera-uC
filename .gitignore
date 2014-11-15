@@ -1,7 +1,6 @@
 ex*.c
 *.ino
 *.o
-*.c
 *.elf
 *.a
 *.pyc
@@ -10,3 +9,4 @@ lib
 *.swp
 *.hex
 *~
+.idea/*

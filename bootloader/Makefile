@@ -41,11 +41,12 @@
 PROGRAM    = ATmegaBOOT_168
 
 # enter the parameters for the avrdude isp tool
-ISPTOOL	   = stk500v2
-ISPPORT	   = usb
 ISPSPEED   = -b 115200
 
-MCU_TARGET = atmega168
+MCU_TARGET = atmega328
+ISPTOOL	   = dragon_isp
+ISPPORT	   = usb
+ISPSPEED   = -b 11520 -B250
 LDSECTION  = --section-start=.text=0x3800
 
 # the efuse should really be 0xf8; since, however, only the lower
@@ -150,13 +151,12 @@ atmega644p_isp: EFUSE = FD
 atmega644p_isp: isp
 
 
+ISPFUSES    = avrdude -c $(ISPTOOL) -p m328 -P $(ISPPORT) $(ISPSPEED) -e -u -U lock:w:0x3f:m -U efuse:w:0x00:m -U hfuse:w:0x$(HFUSE):m -U lfuse:w:0x$(LFUSE):m
+ISPFLASH    = avrdude -c $(ISPTOOL) -p m328 -P $(ISPPORT) $(ISPSPEED) -e -u -U flash:w:$(PROGRAM)_$(TARGET).hex -U lock:w:0x0f:m
+
 isp: $(TARGET)
 	$(ISPFUSES)
 	$(ISPFLASH)
-
-isp-stk500: $(TARGET).hex
-	$(STK500-1)
-	$(STK500-2)
 
 %.elf: $(OBJ)
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^ $(LIBS)
@@ -175,4 +175,3 @@ clean:
 
 %.bin: %.elf
 	$(OBJCOPY) -j .text -j .data -O binary $< $@
-	
